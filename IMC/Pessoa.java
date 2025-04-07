@@ -1,23 +1,30 @@
+// Classe Pessoa
 public class Pessoa {
-    public String nomePessoa;
-    public double pesoPessoa;
-    public double alturaPessoa;
-    public double imcPessoa;
-
-    public Pessoa(String nomePessoa, double pesoPessoa, double alturaPessoa) {
+     // Atributos da Classe Pessoa
+     private String nomePessoa;
+     private double pesoPessoa;
+     private double alturaPessoa;
+     private double imcPessoa;
+     // Construtor da Classe Pessoa
+     public Pessoa(String nomePessoa, double pesoPessoa, double alturaPessoa) {
         this.nomePessoa = nomePessoa;
         this.pesoPessoa = pesoPessoa;
         this.alturaPessoa = alturaPessoa;
-
+        this.imcPessoa = calcularImcPessoa(pesoPessoa, alturaPessoa);
+     }
+    // Método para cálculo do IMC da Classe Pessoa
+    private static double calcularImcPessoa(double peso, double altura) {
+        double imc = 0.0;
         //Fórmula do IMC = Peso ÷ (Altura × Altura)
-        this.imcPessoa = pesoPessoa / (alturaPessoa * alturaPessoa);
+        imc = peso / ( Math.pow(altura, 2) );
+        return imc;
     }
-
-    public void mostrarPessoa(){
+    // Método para mostrar a Pessoa e resultado do cálculo do IMC
+    public void mostrarImcPessoa(){
         System.out.println("Nome:" + this.nomePessoa);
         System.out.println("Peso:" + this.pesoPessoa);
         System.out.println("Altura:" + this.alturaPessoa);
         System.out.println("IMC:" + this.imcPessoa);
     }
-
 }
+    
